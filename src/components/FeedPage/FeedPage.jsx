@@ -119,23 +119,23 @@ const FeedPage = (props) => {
 
     if (props.feed.length === 0) {
         props.setFeed(feed)
-        // let axios = require("axios").default;
-        // let options = {
-        //     method: 'GET',
-        //     url: 'https://tiktok33.p.rapidapi.com/trending/feed',
-        //     headers: {
-        //         'x-rapidapi-host': 'tiktok33.p.rapidapi.com',
-        //         'x-rapidapi-key': '493fd3e844mshffd84ae842a6590p11fbc4jsnb7aa4dd470a5'
-        //     }
-        // };
+        let axios = require("axios").default;
+        let options = {
+            method: 'GET',
+            url: 'https://tiktok33.p.rapidapi.com/trending/feed',
+            headers: {
+                'x-rapidapi-host': 'tiktok33.p.rapidapi.com',
+                'x-rapidapi-key': '493fd3e844mshffd84ae842a6590p11fbc4jsnb7aa4dd470a5'
+            }
+        };
 
-        // axios.request(options).then(function (response) {
-        //     console.log(response.data);
-        //     props.setFeed(response.data);
-        //     debugger;
-        // }).catch(function (error) {
-        //     console.error(error);
-        // });
+        axios.request(options).then(function (response) {
+            console.log(response.data);
+            props.setFeed(response.data);
+            debugger;
+        }).catch(function (error) {
+            console.error(error);
+        });
 
     }
     let posts = props.feed.map(f => <Post

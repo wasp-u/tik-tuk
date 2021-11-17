@@ -4,20 +4,20 @@ import style from './UserPage.module.css'
 
 const UserPage = (props) => {
     if (props.userInfo.length === 1) {
-        //     var axios = require("axios").default;
-        //     var options = {
-        //         method: 'GET',
-        //         url: 'https://tiktok33.p.rapidapi.com/user/info/dave.xp',
-        //         headers: {
-        //             'x-rapidapi-host': 'tiktok33.p.rapidapi.com',
-        //             'x-rapidapi-key': '493fd3e844mshffd84ae842a6590p11fbc4jsnb7aa4dd470a5'
-        //         }
-        //     };
-        //     axios.request(options).then(function (response) {
-        //         props.setUserInfo(response.data)
-        //     }).catch(function (error) {
-        //         console.error(error);
-        //     });
+        var axios = require("axios").default;
+        var options = {
+            method: 'GET',
+            url: 'https://tiktok33.p.rapidapi.com/user/info/dave.xp',
+            headers: {
+                'x-rapidapi-host': 'tiktok33.p.rapidapi.com',
+                'x-rapidapi-key': '493fd3e844mshffd84ae842a6590p11fbc4jsnb7aa4dd470a5'
+            }
+        };
+        axios.request(options).then(function (response) {
+            props.setUserInfo(response.data)
+        }).catch(function (error) {
+            console.error(error);
+        });
         return (
             <div className={style.user_info_container}>
                 <UserInfo userAvatar={props.userInfo[0].user.avatarThumb}
