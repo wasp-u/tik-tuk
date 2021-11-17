@@ -1,0 +1,26 @@
+
+.user_bio{
+    display: flex;
+    padding: 10px;
+}
+.user_avatar{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+.user_name{
+    margin-left: 10px;
+    font-size: 1.8em;
+}
+.user_stats{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+.user_stats div{
+    background: rgba(239, 239, 239, 0.56);
+    border-radius: 10px;
+}
+.user_stats p{
+    text-align: center;
+}
