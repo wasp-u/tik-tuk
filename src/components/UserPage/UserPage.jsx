@@ -1,9 +1,10 @@
-import UserFeed from './UserFeed';
+import UserFeedContainer from './UserFeedContainer';
 import UserInfo from './UserInfo';
 import style from './UserPage.module.css'
 
 const UserPage = (props) => {
-    if (props.userInfo.length === 1) {
+    let element = [];
+    if (props.userInfo.length === 0) {
         var axios = require("axios").default;
         var options = {
             method: 'GET',
@@ -14,36 +15,27 @@ const UserPage = (props) => {
             }
         };
         axios.request(options).then(function (response) {
-            props.setUserInfo(response.data)
+            console.log(response.data);
+            props.setUserInfo([response.data])
         }).catch(function (error) {
             console.error(error);
         });
-        return (
-            <div className={style.user_info_container}>
-                <UserInfo userAvatar={props.userInfo[0].user.avatarThumb}
-                    userName={props.userInfo[0].user.nickname}
-                    followersCount={props.userInfo[0].stats.followerCount}
-                    followingCount={props.userInfo[0].stats.followingCount}
-                    heartCount={props.userInfo[0].stats.heartCount}
-                    videoCount={props.userInfo[0].stats.videoCount}
-                />
-
-            </div>
-        )
+        element = [<img src="https://cdn.dribbble.com/users/902865/screenshots/4814970/loading-opaque.gif" alt="" />]
     } else {
-        return (
-            <div className={style.user_info_container}>
-                <UserInfo userAvatar={props.userInfo[1].user.avatarThumb}
-                    userName={props.userInfo[1].user.nickname}
-                    followersCount={props.userInfo[1].stats.followerCount}
-                    followingCount={props.userInfo[1].stats.followingCount}
-                    heartCount={props.userInfo[1].stats.heartCount}
-                    videoCount={props.userInfo[1].stats.videoCount}
-                />
-                <UserFeed />
-            </div>
-        )
+        element = [<UserInfo userAvatar={props.userInfo[0].user.avatarThumb}
+            userName={props.userInfo[0].user.nickname}
+            followersCount={props.userInfo[0].stats.followerCount}
+            followingCount={props.userInfo[0].stats.followingCount}
+            heartCount={props.userInfo[0].stats.heartCount}
+            videoCount={props.userInfo[0].stats.videoCount}
+        />]
     }
+    return (
+        <div className={style.user_info_container}>
+            {element}
+            <UserFeedContainer />
+        </div>
+    )
 }
 
 export default UserPage;
