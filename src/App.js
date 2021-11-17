@@ -11,8 +11,8 @@ function App() {
       <Header />
       <div className='wrapper'>
         <Routes >
-          {/* <Route path='/' element={<FeedPageContainer />} />
-          <Route path='/feed' element={<FeedPageContainer />} /> */}
+          <Route path='/' element={<FeedPageContainer />} />
+          <Route path='/feed' element={<FeedPageContainer />} />
           <Route path='/profile' element={<UserPageContainer />} />
         </Routes>
       </div>
