@@ -1,3 +1,9 @@
+при работе использовал React Redux React-redux.
+К сожалению не смог получить UserFeed из API(и пока не знаю как обработать ошибки при работе с API).
+Строго не судите потому что рект начал учить только 8 дней назад. 
+До этого я в принципе не знал как работают подобные фреймворки.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
